@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/adtopic_item_type_2"
+    android:orientation="vertical" >
+
+    <com.amap.api.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </com.amap.api.maps.MapView>
+
+    <RelativeLayout
+        android:id="@+id/mllTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#79d28e"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+            <!--<ImageView-->
+
+                <!--android:layout_width="200dp"-->
+                <!--android:layout_height="245dp"-->
+                <!--android:layout_marginLeft="200dp"-->
+                <!--android:src="@drawable/aaa" />-->
+            <TextView
+                android:id="@+id/mtvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="left|center_vertical"
+                android:text="Name"
+                android:textColor="#333333"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/mtvType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10dp"
+                android:gravity="left|center_vertical"
+                android:text="address"
+                android:textColor="#ff0000"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/mivDelete"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_delete"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/saomaCode"
+        android:layout_width="wrap_content"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22dp"
+        android:text="故障保修"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_yuna"/>
+
+</RelativeLayout>

@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+
+android {
+
+
+
+    compileSdkVersion 23
+    buildToolsVersion '26.0.2'
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+    defaultConfig {
+        applicationId "com.client"
+        minSdkVersion 17
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    allprojects {
+        gradle.projectsEvaluated {
+            tasks.withType(JavaCompile) {
+                options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+            }
+        }
+    }
+    defaultConfig {
+        ndk {
+            //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "x86","arm64-v8a","x86_64"
+            moduleName "app"
+        }
+    }
+
+    allprojects {
+        repositories {
+            jcenter()
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+
+
+    splits {
+        abi {
+            enable true
+            reset()
+//            include 'armeabi'//, 'x86_64'//只打包armeabi平台的，就算有其他文件夹也不管
+//            include 'armeabi'//, 'armeabi-v7a', 'arm64-v8a', 'mips', 'x86', 'x86_64'
+            include 'x86', 'armeabi-v7a', 'mips','armeabi'
+            universalApk true
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.0.0'
+    compile files('libs/afinal_0.5.1_bin.jar')
+    compile files('libs/universal-image-loader-1.9.3.jar')
+    compile files('libs/httpcore-4.4.1.jar')
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.squareup.picasso:picasso:2.3.2'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.google.zxing:core:3.3.0'
+    implementation 'com.idescout.sql:sqlscout-server:4.0'
+    implementation files('libs/mysql-connector-java-5.1.7-bin.jar')
+}

@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color_login"
+    android:orientation="vertical"
+     >
+
+    <include
+        android:id="@+id/rl_title"
+        layout="@layout/title_layout" />
+
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         android:visibility="gone"
+        android:gravity="center_vertical|center_horizontal" >
+
+         <com.amap.api.navi.AMapNaviView
+             android:id="@+id/navi_view"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
